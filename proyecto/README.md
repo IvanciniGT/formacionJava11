@@ -24,9 +24,10 @@ Respuesta sería: NO, quizás quisiste decir:
 
 Teneis 3 personas para esto:
 
-- Subproyecto: API de la libreria de DICCIONARIOS
-- Subproyecto: Crear la implementación del diccionario (BBDD, Fichero, Servicios REST)
-- Subproyecto: Crear la app de consola
+1. Subproyecto: API de la libreria de DICCIONARIOS
+3. Subproyecto: Crear la implementación del diccionario (BBDD, Fichero, Servicios REST)
+    Java11 
+2. Subproyecto: Crear la app de consola
 
 Y quiero equipos de trabajo independientes: REPOS DE GIT independientes
 
@@ -115,3 +116,13 @@ com.curso.app
     Este proyecto , de cuál tiene dependencias? API
     
     
+    
+    
+    SuministradorDeDiccionariosDesdeFicheros
+        ES
+        FR
+        EN
+    
+    SuministradorDeDiccionariosDesdeBBDD
+        RS
+        CH
