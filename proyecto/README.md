@@ -126,3 +126,62 @@ com.curso.app
     SuministradorDeDiccionariosDesdeBBDD
         RS
         CH
+        
+
+
+
+
+----
+# Sugerencias de: manana
+
+distanciaDeLevenstein(palabra1, palabra2) -> int 
+Ese entero es la diferencia entre las 2 palabras, medida en el número de 
+caracteres que habría que cambiar(añadir o eliminar)de una palabra para llegar a la otra
+                    
+                    distancia
+manana - manzana        1
+manana - manzano        2
+manana - mañana         1
+
+// Le vamos a meter un diccionario con 650k
+
+Voy a intentar hacer el mejor uso posible de mis Cores (CPU) ~> Hilos
+
+- Calcular la distancia para todas las claves del diccionario
+- Filtrar aquellas que la distancia sea mayor que un valor dado.   <= 2
+- Ordenar de menor a mayor puntuación
+    // Qué tal se le da a un ordenador, ordenar? COMO EL CULO !
+- Cortamos en 10
+- Devolver las palabras
+
+
+
+BUSCAR = manana
+
+claves=palabras
+del diccionario
+  V                          STREAM                         STREAM                  STREAM                      STREAM
+STREAM     - MAP palabra ->  distancia -> filtrar <= 2  ->          -> sorted  ->           --> limit(10). ->           --->   que podría devolver  
+                                                                                                                                una lista de numeros
+manzana                        S( 1, manzana )              S( 1, manzana )          S( 1, manzana )            S( 1, manzana )  -> manzana
+manzano                         2, manzano                    2, manzano.            1                           1
+mañana                          1, mañana                     1, mañana              2                           2
+federico                        8, federico
+....
+600k
+
+En la terminal : manana
+
+La palabra manana no existe en el dicionario.
+Quizás quisiste decir:
+    manzana
+    mañana
+    manzano
+
+
+Mete 4 gbs de RAM 
+Si el checo llega el dia 1 le cargo y a la memoria
+Si el ruso llega el dia 2 le cargo y a la memoria
+Si el aleman llega el dia 3 le cargo y NO HAY MEMORIA, me cargo el checo y el ruso y hago hueco
+Si el checho llega el dia 5 le cargaré otra vez...
+Gracias a dios... si no lo hubviera quitao no habria sistema (OUT OF MEMORY)

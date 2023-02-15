@@ -1,6 +1,37 @@
+
+import java.util.Optional;
+
+import java.net.URL;
+import java.nio.file.Path;
+
 public interface Utilidades {
 
-    public static int computeLevenshteinDistance(String str1, String str2) {
+    public static final int DISTANCIA_MAXIMA_PERMITIDA = 2;
+    public static final int MAXIMOS_A_DEVOLVER = 10;
+    
+    public static Optional<Map<String,List<String>>> cargarDiccionario(String idioma){
+        Optional<Path> pathDelFichero = getRutaDiccionario(idioma);
+        if(!path.isEmpty())
+            try{
+                String contenido = Files.readString(path.get());
+                return contenido.lines() // JAVA 11
+                
+                
+                // Y devulevo
+            }catch(IOException){
+            }
+        return Optional.empty();
+    }
+    
+    private static Optional<Path> getRutaDiccionario(String idioma){
+        URL urlDelFichero = Utilidades.class.getClassLoader().getResource("diccionario."+idioma+".txt");
+        if (urlDelFichero == null )
+            return Optional.empty();
+        return Optional.of(Path.of(urlDelFichero.toUri())));
+    }
+    
+    public static int distancia(String str1, String str2) {
+        if ( Math.abs(str1.length() - str1.length()) > DISTANCIA_MAXIMA_PERMITIDA ) return DISTANCIA_MAXIMA_PERMITIDA+1;
         return computeLevenshteinDistance(str1.toCharArray(),
                                           str2.toCharArray());
     }
@@ -27,5 +58,9 @@ public interface Utilidades {
             }
         }
         return distance[str1.length][str2.length];
+    }
+    
+    public static String normalizarPalabra(String palabra){
+        return Objects.requireNonNull(palabra).toLowerCase();
     }
 }
