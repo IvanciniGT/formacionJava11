@@ -129,3 +129,63 @@ Empiezo a meter datos... en que modelo? En niguno. Si en Mongo no existe ese con
 
 A lo mejor cuando acabo el proyecto, que ya tengo claro lo que necesito guardar.
 Meto unas validaciones de entrada a los datos.
+
+
+MAVEN 
+
+Herramienta que nos permite:
+- Gestionar las dependencias
+- Me ayuda con las tareas del ciclo de vida:
+  -  compilación
+  -  pruebas
+  -  empaquetado
+  -  gestión de recursos(ficheros de conf., otros archivos)
+  -  control de versiones
+  -  Muchas otras cosas (mediante plugins) Mandar mi codigo a Sonarqube
+
+Maven impone (me permite configruarlo... lo lo hago nunca) una estructura de carpetas en el proeycto
+
+proyecto/
+        src/
+            main/
+                java/
+                resources/
+                webapp/
+            test/
+                java/
+                resources/
+        
+        target/classes
+              /test-classes
+              /surefire-reports Respultados de las pruebas
+              .jar
+        pom.xml                 Archivo de configuracion de maven del proyecto
+                                    coordenadas del artefacto:
+                                        grupo       El proyecto gordo
+                                        id          El componente / modulo 
+                                        versión
+                                    dependencias
+                                    plugins
+                                    metadatos
+    
+A mvn le pido que ejecute tareas sobre mi proyecto
+
+- compile       Compila el codigo       target/classes
+- test-compile  Compila mis pruebas     target/test-classes
+- test          Ejecuta mis pruebas
+- package       Genera el .jar .war .ear    target/
+- install       Copia el empaquetado al directorio .m2 < Donde maven guarda los artefactos(empaquetados)
+                mios y los que descarga de internet
+- clean         Borra la carpeta target
+
+
+
+proyecto: cosas-diccionario ---> repo git mvn gestionar de forma conjunta
+                                    Declararía como SUBMODULOS estos otros repos
+            app                         ---> repo git  y se gestionan con mvn de forma independiente al resto
+            diccionario                 ---> repo git 
+            diccionarioFicheros         ---> repo git 
+
+
+
+mvn sonar:sonar -Dsonar.login=squ_58139c6a1a3e28032f79f0eda3332f237b287d1b
