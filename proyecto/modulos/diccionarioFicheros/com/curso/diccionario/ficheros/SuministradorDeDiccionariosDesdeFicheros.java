@@ -4,6 +4,8 @@ import  com.curso.diccionario.SuministradorDeDiccionarios;
 import  com.curso.diccionario.Diccionario;
 
 import java.util.Optional;
+import java.util.Objects;
+import java.util.List;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -20,10 +22,11 @@ public class SuministradorDeDiccionariosDesdeFicheros implements SuministradorDe
     }
 
     public Optional<Diccionario> getDiccionario(String idioma){
-        if (!diccionarios.containsKey(Objects.requireNonNull(idioma)))                      // Si no tengo el diccionario en cache
+        if (!diccionarios.containsKey(Objects.requireNonNull(idioma)))  {                    // Si no tengo el diccionario en cache
             Optional<Map<String,List<String>>> terminos = Utilidades.cargarDiccionario(idioma);
             if(terminos.isPresent())
-                diccionarios.put(idioma, new DiccionarioDesdeFichero(terminos.get()))   // Lo cargo en cache. LOS DICCIONARIOS SE CARGAN EN MODO LAZY 
+                diccionarios.put(idioma, new DiccionarioDesdeFichero(terminos.get()));   // Lo cargo en cache. LOS DICCIONARIOS SE CARGAN EN MODO LAZY 
+        }
         return Optional.ofNullable(diccionarios.get(idioma));                               // Devuelvo de la cache
     }
 }

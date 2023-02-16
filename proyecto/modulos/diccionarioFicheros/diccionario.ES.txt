@@ -1,4 +1,3 @@
 termino=definicion 1|definicion 2
 manzana=Fruto del manzano
 melón=Fruto del melonero|Persona cortita de entendederas
-

@@ -2,6 +2,7 @@ package com.curso.app;
 
 import com.curso.diccionario.Diccionario;
 import com.curso.diccionario.SuministradorDeDiccionarios;
+
 import java.util.ServiceLoader;
 import java.util.Iterator;
 
@@ -24,6 +25,7 @@ public class App {
             System.exit(3);
         }
         
+        System.out.println("Cargando el diccionario...");
         Diccionario diccionario = null;
         while(suministradores.hasNext()){
             SuministradorDeDiccionarios suministrador = suministradores.next();
@@ -38,6 +40,7 @@ public class App {
             System.exit(2);
         }
         
+        System.out.println("Ya tengo el diccionario");
         if(diccionario.existe(palabra)){
             System.out.println("Si que existe la palabra: "+ palabra);
             System.out.println("Significados:");
